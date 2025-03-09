@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>atmospheric solutions</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* base */
+      html,
+      body {
+        height: 100%;
+        font-family: "Comfortaa", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        font-size: 21px;
+        background-color: #f7f7f7;
+        color: #545454;
+        font-weight: 100;
+        opacity: 1;
+        transition: opacity 1s;
+        text-transform: lowercase;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 1em;
+        font-weight: normal;
+      }
+
+      h1 {
+        padding-bottom: 1.5em;
+      }
+      nav#past-present-future {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2em;
+        /* flex */
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      nav#past-present-future a {
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        background: #f7f7f7;
+        font-size: 0.95em;
+        padding: 3px 12px 4px 12px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1),
+          0px 0px 5px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1),
+          0px 0px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      nav#guide {
+        position: fixed;
+        font-size: 0.5em;
+        top: 0;
+        left: 0;
+      }
+
+      /* sphere (half) */
+
+      .super-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 65vh;
+        overflow: hidden;
+        z-index: -1;
+      }
+      .container {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 150vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .base-gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle closest-side at center center,
+          hsl(0, 0%, 34%) 15.49%,
+          hsla(55.7, 50%, 50%, 0) 43.54%,
+          hsl(0, 0%, 31%) 70.87%,
+          hsla(236.3, 50%, 56.4%, 0) 100%
+        );
+        opacity: 0.25;
+        overflow: hidden;
+      }
+
+      .glow-gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+        background: radial-gradient(
+          circle closest-side at center center,
+          hsl(0, 0%, 34%) 15.49%,
+          hsla(55.7, 50%, 50%, 1) 43.54%,
+          hsl(0, 0%, 31%) 70.87%,
+          hsla(236.3, 50%, 56.4%, 0) 100%
+        );
+        overflow: hidden;
+      }
+
+      .glow-gradient.landing {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>( &nbsp;&nbsp;Coming Soon&nbsp;&nbsp; )</h1>
+  </body>
+</html>
