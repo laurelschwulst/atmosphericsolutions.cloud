@@ -1,0 +1,423 @@
+/* base */
+* { box-sizing: border-box; }
+
+      html,
+      body {
+        height: 100%;
+        font-family: sans-serif;
+      }
+      body {
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        font-size: 21px;
+        font-family: "ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3", "Hiragino Kaku Gothic Pro",
+          "ãƒ¡ã‚¤ãƒªã‚ª", Meiryo, Osaka, "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯", "MS PGothic",
+          sans-serif;
+        background-color: #f7f7f7;
+        color: #545454;
+        font-weight: 100;
+        opacity: 1;
+        transition: opacity 1s;
+        text-transform: lowercase;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 1em;
+        font-weight: normal;
+      }
+
+      /* specifics */
+      main {
+        padding-top: 100vh;
+      }
+      .atmospheric-home {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding-top: 1.5em;
+      }
+      h1 {
+        font-size: 0.95em;
+        padding: 3px 12px 4px 12px;
+        background: #f7f7f7;
+        box-shadow: 0 0 20px 24px #f7f7f7;
+        border-radius: 25px;
+          display: inline-block;
+      }
+      nav#past-present-future {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2.5em;
+        z-index: 555;
+      }
+      nav#past-present-future a.current {
+        background: #f7f7f7;
+      }
+      nav#past-present-future .inside {
+        max-width: 1250px;
+        margin: 0 auto;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      nav#past-present-future .fifths {
+        max-width: calc(1250px + 1.4em);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      }
+      nav#past-present-future .fifths div {
+        text-align: center;
+      }
+      nav#past-present-future .fifths div a {
+        width: calc(100% - 1.5em);
+        padding: 0.75em;
+      }
+      nav#past-present-future a {
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        transition: 0.25s ease all;
+        font-size: 0.95em;
+        padding: 3px 12px 4px 12px;
+        padding: 5px 14px 5px 15px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1),
+          0px 0px 5px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1),
+          0px 0px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav#past-present-future a:hover {
+        background: #f7f7f7;
+      }
+
+      nav#guide {
+        position: fixed;
+        font-size: 0.95em;
+        bottom: 2.65em;
+        bottom: 3.35em;
+        left: 2em;
+        opacity: 0; /* Hidden initially */
+        visibility: hidden; /* Ensure it's not interactive when hidden */
+        transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Smooth fade with delayed visibility change */
+        z-index: 888;
+    }
+      
+      nav#guide.visible {
+        opacity: 1; /* Visible when the 'visible' class is added */
+        visibility: visible; /* Ensure the element is interactive when shown */
+        transition: opacity 0.5s ease-in-out, visibility 0s 0s; /* Immediate visibility change with opacity fade */
+      }
+
+      nav#guide a {
+        padding: 3px 12px 4px 12px;
+        padding: 5px 14px 5px 15px;
+          text-decoration: none;
+          color: #545454;
+        padding: 0.75em;
+      }
+
+      /* sphere (half) */
+
+      .super-blur-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .super-blur-container .blur {
+        backdrop-filter: blur(30px);
+        filter: grayscale(100%);
+        height: 100vh;
+        width: 100vw;
+        z-index: -2;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        position: absolute;
+      }
+
+      .super-blur-container .inside {
+        background: url('../images/cfcl2025.jpg');
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+        z-index: -3;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        position: absolute;
+      }
+
+      .super-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 65vh;
+        overflow: hidden;
+        z-index: -1;
+      }
+      .container {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 150vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .base-gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle closest-side at center center,
+          hsl(0, 0%, 34%) 15.49%,
+          hsla(55.7, 50%, 50%, 0) 43.54%,
+          hsl(0, 0%, 31%) 70.87%,
+          hsla(236.3, 50%, 56.4%, 0) 100%
+        );
+        opacity: 0.25;
+        overflow: hidden;
+      }
+
+      .glow-gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+        background: radial-gradient(
+          circle closest-side at center center,
+          hsl(0, 0%, 34%) 15.49%,
+          hsla(55.7, 50%, 50%, 1) 43.54%,
+          hsl(0, 0%, 31%) 70.87%,
+          hsla(236.3, 50%, 56.4%, 0) 100%
+        );
+        overflow: hidden;
+      }
+
+      .glow-gradient.landing {
+        opacity: 1;
+      }
+
+      .invisible {
+        display: none;
+      }
+
+      /* SECTIONS */
+
+      section {
+        min-height: 100vh;
+        padding: 0 0.5em;
+      }
+      
+      #about-us,
+      #atmospheric-friends,
+      #contact-us {
+        text-align: center;
+      }
+
+      /* #test {
+        height: 500vh;
+      } */
+
+      /* GENERAL */
+
+      .column {
+        max-width: 650px;
+        margin: 0 auto;
+      }
+
+      .small-text {
+        font-size: 0.65em;
+      }
+
+      .spacer {
+        height: 3.5em;
+      }
+
+      .spacer.big {
+        height: 5em;
+      }
+
+      h3 {
+        /* background: white; */
+        letter-spacing: 0.025em;
+        /* box-shadow: 0 0 20px 24px #ffffff;
+        border-radius: 25px; */
+      }
+
+      h3.underline {
+        display: inline-block;
+        /* padding: 0em 0.25em; */
+        padding-bottom: 0.25em;
+        border-bottom: 1px dotted #545454;
+      }
+
+      h3.department {
+        margin-top: 2.5em;
+        font-size: 0.65em;
+        padding-bottom: 0.25em;
+        border-bottom: 1px dotted #545454;
+        display: inline-block;
+      }
+
+      h3.department:first-of-type {
+        margin-top: 0;
+      }
+
+      .collaborator {
+        display: inline-block;
+        /* background: #dadada;
+        padding: 0em 0.25em;
+        box-shadow: 0 0 20px 24px #dadada;
+        border-radius: 25px; */
+        margin: 0.5em 0;
+        letter-spacing: 0.025em;
+        /* mix-blend-mode: difference; */
+        /* backdrop-filter: blur(10px); */
+      }
+
+      table, tr, td {
+        border-collapse: collapse;
+      }
+
+      table {
+        max-width: 1250px;
+        margin: 0 auto;
+      }
+
+      td {
+        border: 1px dotted #545454;
+        padding: 0.25em 0.5em;
+        font-size: 0.65em;
+        letter-spacing: 0.025em;
+        vertical-align: top;
+      }
+
+      table a {
+        color: #545454;
+        text-decoration: none;
+      }
+
+      table.future {
+        opacity: 0.6;
+      }
+
+      tr {
+        transition: 0.25s ease all;
+      }
+
+      tr:hover {
+        background: #f7f7f7;
+      }
+
+      tr.item-content {
+        display: none;
+      }
+
+      /* tr.item-title {
+        cursor: pointer;
+      } */
+
+      tr.item-content.static {
+        /* background: #545454;
+        color: #f7f7f7; */
+        padding: 1em 0.5em;
+        text-align: center;
+      }
+
+      tr.item-content.static img {
+        width: 350px;
+        display: block;
+        margin: 0.25em auto;
+      }
+
+      .mobile-title {
+        display: none;
+      }
+
+      thead td {
+        transition: 0.25s ease all;
+      }
+
+      thead td:hover {
+        background: #ccc;
+      }
+
+      @media (max-width: 1250px) {
+
+        .mobile-title {
+            display: block;
+            margin-bottom: 1em;
+            /* padding: 3px 12px 4px 12px;
+            background: #f7f7f7;
+            box-shadow: 0 0 20px 24px #f7f7f7; */
+        }
+
+        nav#guide {
+            top: 0.25em;
+            left: 0;
+            right: 0;
+            bottom: auto;
+            text-align: center;
+            background: #f7f7f7;
+            box-shadow: 0 0 20px 24px #f7f7f7;
+        }
+
+        nav#guide a {
+            font-size: 0.75em;
+        }
+
+        nav#past-present-future {
+            bottom: 1.5em;
+            left: 1em;
+            right: 1em;
+            padding: 0;
+        }
+
+        nav#past-present-future .fifths {
+            display: block;
+          }
+
+          nav#past-present-future .fifths div a {
+            padding: 0.45em;
+            /* margin: 0.25em 0; */
+          }
+
+          .super-container {
+            left: -25vw;
+            right: -25vw;
+          }
+
+          .container {
+            width: 150vw;
+            height: 100vh;
+          }
+
+          table {
+            font-size: 0.75em;
+          }
+
+      }
