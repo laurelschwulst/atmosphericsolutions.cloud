@@ -372,6 +372,26 @@
 
       @media (max-width: 1250px) {
 
+        body,
+        table {
+          overflow-x: scroll;
+        }
+
+        #past-solutions,
+        #future-solutions {
+          text-align: center;
+        }
+
+        #past-solutions table,
+        #future-solutions table {
+          display: inline-block;
+        }
+
+        #past-solutions table td,
+        #future-solutions table td {
+          text-align: left;
+        }
+
         .mobile-title {
             display: block;
             margin-bottom: 1em;
