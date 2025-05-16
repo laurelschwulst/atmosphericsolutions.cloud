@@ -11,13 +11,13 @@ $(function () {
   });
 
   // tablesorter
-  $('#expert').tablesorter({ widgets: ['staticRow'] });
+  $("#expert").tablesorter({ widgets: ["staticRow"] });
 
-  $('#expert').bind('sortEnd',function(e, table) {
-    $('tr.static').each(function(){
-      console.log('parent-id');
-      var id = $(this).data('parent-id');
-      var parentSelector = '[data-id=' + id + ']';
+  $("#expert").bind("sortEnd", function (e, table) {
+    $("tr.static").each(function () {
+      console.log("parent-id");
+      var id = $(this).data("parent-id");
+      var parentSelector = "[data-id=" + id + "]";
       $(this).insertAfter(parentSelector);
     });
   });
@@ -32,24 +32,29 @@ $(function () {
   //   console.log(childSelector);
   // });
 
-
   // Guide nav
-  const guideNav = $('#guide'); // The guide navigation element
-  const aboutUsSection = $('#about-us'); // The "About Us" section
+  const guideNav = $("#guide"); // The guide navigation element
+  const aboutUsSection = $("#about-us"); // The "About Us" section
   const aboutUsOffset = aboutUsSection.offset().top - 100; // Top position of the "About Us" section
 
   // Section offsets for active link highlighting
-  const sections = ['#about-us', '#past-solutions', '#atmospheric-friends', '#future-solutions', '#contact-us'];
+  const sections = [
+    "#about-us",
+    "#past-solutions",
+    "#atmospheric-friends",
+    "#future-solutions",
+    "#contact-us",
+  ];
 
   // Highlight the current link based on the scroll position
-  $(window).on('scroll', function () {
+  $(window).on("scroll", function () {
     const scrollPosition = $(window).scrollTop();
 
     // Show/hide the guide nav based on scroll position
     if (scrollPosition > aboutUsOffset) {
-      guideNav.addClass('visible');
+      guideNav.addClass("visible");
     } else {
-      guideNav.removeClass('visible');
+      guideNav.removeClass("visible");
     }
 
     // Flag to track if any section is currently active
@@ -61,13 +66,18 @@ $(function () {
       const sectionHeight = $(section).outerHeight();
 
       // Check if the current scroll position is within the section's range
-      if (scrollPosition >= sectionOffset && scrollPosition < sectionOffset + sectionHeight) {
+      if (
+        scrollPosition >= sectionOffset &&
+        scrollPosition < sectionOffset + sectionHeight
+      ) {
         // Remove 'current' class from all links
         $("nav#past-present-future a").removeClass("current");
-        
+
         // Add 'current' class to the corresponding link
-        $("nav#past-present-future a[href='" + section + "']").addClass("current");
-        
+        $("nav#past-present-future a[href='" + section + "']").addClass(
+          "current"
+        );
+
         // Mark that a section is currently active
         sectionActive = true;
       }
@@ -78,4 +88,45 @@ $(function () {
       $("nav#past-present-future a").removeClass("current");
     }
   });
+
+  // Times in Paris and Tokyo
+
+  function formatTimeInCity(timezone) {
+    const date = new Date();
+    const options = {
+      timeZone: timezone,
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+      weekday: undefined,
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    };
+    const formatter = new Intl.DateTimeFormat("en-US", options);
+    const parts = formatter.formatToParts(date);
+
+    const hour = parts.find((p) => p.type === "hour").value;
+    const minute = parts.find((p) => p.type === "minute").value;
+    const day = parts.find((p) => p.type === "day").value;
+    const month = parts.find((p) => p.type === "month").value;
+    const year = parts.find((p) => p.type === "year").value;
+    const dayPeriod = parts
+      .find((p) => p.type === "dayPeriod")
+      .value.toLowerCase();
+
+    return `${hour}:${minute}${dayPeriod}, ${month} ${day}, ${year}`;
+  }
+
+  function updateTimes() {
+    document.getElementById("paris-time").textContent =
+      formatTimeInCity("Europe/Paris");
+    document.getElementById("tokyo-time").textContent =
+      formatTimeInCity("Asia/Tokyo");
+  }
+
+  updateTimes();
+
+  // Optional: Update every minute
+  setInterval(updateTimes, 60 * 1000);
 });

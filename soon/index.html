@@ -16,6 +16,15 @@
         <h1>Atmospheric Solutions</h1>
       </div>
 
+      <div id="welcome">
+        Welcome!
+      </div>
+
+      <div id="times">
+        Paris — <span id="paris-time">1:56am, May 17, 2025</span><br>
+        Tokyo — <span id="tokyo-time">6:56am, May 17, 2025</span>
+      </div>
+
       <nav id="past-present-future">
         <div class="fifths">
           <div>
@@ -372,6 +381,96 @@
       <div class="blur"></div>
       <div class="inside"></div>
     </div> -->
+
+    <div id="flight">Waiting for flight to land in Paris...</div>
+
+<script>
+const flightDiv = document.getElementById("flight");
+
+// Paris bounding box (approx)
+const LAMIN = 48.7;
+const LAMAX = 49.2;
+const LONMIN = 2.2;
+const LONMAX = 2.5;
+
+// Store landed flight IDs to avoid duplicates
+let seenFlights = new Set();
+
+async function checkFlights() {
+  try {
+    const res = await fetch(`https://opensky-network.org/api/states/all?lamin=${LAMIN}&lomin=${LONMIN}&lamax=${LAMAX}&lomax=${LONMAX}`);
+    const data = await res.json();
+
+    if (!data.states) return;
+
+    const landedFlights = data.states.filter(flight => flight[8] === true); // on_ground is at index 8
+
+    landedFlights.forEach(flight => {
+      const flightId = flight[0]; // icao24
+      if (!seenFlights.has(flightId)) {
+        seenFlights.add(flightId);
+        flashFlightDiv();
+      }
+    });
+
+    // Keep seenFlights set from growing infinitely
+    if (seenFlights.size > 1000) {
+      seenFlights = new Set([...seenFlights].slice(-500));
+    }
+  } catch (e) {
+    console.error("Flight check failed", e);
+  }
+}
+
+function flashFlightDiv() {
+  flightDiv.style.backgroundColor = 'yellow';
+  setTimeout(() => {
+    flightDiv.style.backgroundColor = '';
+  }, 5000);
+}
+
+// Check every 30 seconds
+setInterval(checkFlights, 30 * 1000);
+checkFlights();
+</script>
+
+    <!-- TIDE -->
+
+    <div id="tide">Checking tide status...</div>
+
+<script>
+function getTideStatus() {
+  const TIDE_DIV = document.getElementById('tide');
+
+  // Kamakura reference low tide: Jan 1, 2024, 00:00 JST (UTC+9)
+  const referenceTide = new Date('2025-05-16T00:40:00+09:00');
+  const now = new Date();
+
+  // Time since reference in milliseconds
+  const msSinceRef = now - referenceTide;
+
+  // Duration of one tide interval (6h 12.5m = 22,500,000ms)
+  const tideIntervalMs = 6.208 * 60 * 60 * 1000;
+
+  // How many tide intervals have passed?
+  const intervals = Math.floor(msSinceRef / tideIntervalMs);
+
+  // Tides alternate: Low → High → Low → High ...
+  const isLowTide = intervals % 2 === 0;
+
+  if (isLowTide) {
+    TIDE_DIV.style.backgroundColor = 'cyan';
+    TIDE_DIV.textContent = "Estimated: It's low tide in Kamakura.";
+  } else {
+    TIDE_DIV.style.backgroundColor = 'white';
+    TIDE_DIV.textContent = "Estimated: It's not low tide in Kamakura.";
+  }
+}
+
+getTideStatus();
+</script>
+
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.tablesorter.js"></script>
     <script src="assets/js/jquery.tablesorter.staticrow.js"></script>
