@@ -445,10 +445,17 @@ thead td:hover {
   table {
     font-size: 0.5em;
   }
+
+  #tide,
+  #flight,
+  #air {
+    display: none;
+  }
 }
 
 #tide,
-#flight {
+#flight,
+#air {
   position: absolute;
   top: 3em;
   left: 1em;
@@ -459,6 +466,10 @@ thead td:hover {
 
 #flight {
   top: 5em;
+}
+
+#air {
+  top: 7em;
 }
 
 #welcome {

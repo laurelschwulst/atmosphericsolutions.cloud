@@ -5,140 +5,472 @@
     <title>atmospheric solutions</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      /* base */
-      html,
-      body {
-        height: 100%;
-        font-family: "Comfortaa", sans-serif;
-        font-optical-sizing: auto;
-        font-style: normal;
-      }
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        -webkit-font-smoothing: antialiased;
-        font-size: 21px;
-        background-color: #f7f7f7;
-        color: #545454;
-        font-weight: 100;
-        opacity: 1;
-        transition: opacity 1s;
-        text-transform: lowercase;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-size: 1em;
-        font-weight: normal;
-      }
-
-      h1 {
-        padding-bottom: 1em;
-      }
-      nav#past-present-future {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 2em;
-        /* flex */
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-justify-content: space-around;
-        justify-content: space-around;
-        -webkit-align-items: center;
-        align-items: center;
-      }
-      nav#past-present-future a {
-        display: inline-block;
-        text-decoration: none;
-        color: black;
-        background: #f7f7f7;
-        font-size: 0.95em;
-        padding: 3px 12px 4px 12px;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1),
-          0px 0px 5px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1),
-          0px 0px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      nav#guide {
-        position: fixed;
-        font-size: 0.5em;
-        top: 0;
-        left: 0;
-      }
-
-      /* sphere (half) */
-
-      .super-container {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 65vh;
-        overflow: hidden;
-        z-index: -1;
-      }
-      .container {
-        position: absolute;
-        top: 0;
-        width: 100vw;
-        height: 150vh;
-        margin: 0;
-        overflow: hidden;
-      }
-
-      .base-gradient {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-          circle closest-side at center center,
-          hsl(0, 0%, 34%) 15.49%,
-          hsla(55.7, 50%, 50%, 0) 43.54%,
-          hsl(0, 0%, 31%) 70.87%,
-          hsla(236.3, 50%, 56.4%, 0) 100%
-        );
-        opacity: 0.25;
-        overflow: hidden;
-      }
-
-      .glow-gradient {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 2s ease-in-out;
-        background: radial-gradient(
-          circle closest-side at center center,
-          hsl(0, 0%, 34%) 15.49%,
-          hsla(55.7, 50%, 50%, 1) 43.54%,
-          hsl(0, 0%, 31%) 70.87%,
-          hsla(236.3, 50%, 56.4%, 0) 100%
-        );
-        overflow: hidden;
-      }
-
-      .glow-gradient.landing {
-        opacity: 1;
-      }
-    </style>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/style.css?333">
+    <link rel="stylesheet" href="assets/css/tablesorter.css">
   </head>
   <body>
-    <h1>( &nbsp;&nbsp;Soon&nbsp;&nbsp; )</h1>
+    <main>
+      <div class="atmospheric-home" id="top">
+        <div class="spacer"></div>
+        <h1>Atmospheric Solutions</h1>
+      </div>
+
+      <div id="welcome">
+        Welcome!
+      </div>
+
+      <div id="times">
+        Paris — <span id="paris-time">1:56am, May 17, 2025</span><br>
+        Tokyo — <span id="tokyo-time">6:56am, May 17, 2025</span>
+      </div>
+
+      <nav id="past-present-future">
+        <div class="fifths">
+          <div>
+            <a href="#about-us">About us</a>
+          </div>
+          <div>
+            <a href="#past-solutions">Past Solutions</a>
+          </div>
+          <div>
+            <a href="#atmospheric-friends">Collaborators</a>
+          </div>
+          <div>
+            <a href="#future-solutions">Future Solutions</a>
+          </div>
+          <div>
+            <a href="#contact-us">Contact us</a>
+          </div>
+        </div>
+      </nav>
+
+      <nav id="guide">
+       <!-- <div class="mobile-title small-text">
+          <a href="#top">Atmospheric Solutions</a></div> -->
+        <a href="#top">↑</a>
+      </nav>
+      <section id="about-us">
+        <h2 class="invisible">About us</h2>
+        <div class="spacer big"></div>
+        <p class="column">
+          <!-- Atmospheric Solutions is a collaborative hub for creative solutions,
+          specializing in art exhibitions, fashion shows, performances, and
+          online initiatives. -->
+          Atmospheric Solutions is a durational corporate performance and fluid agency by artist Nile Koetting, unfolding through an evolving process with his creative companions. 
+        </p>
+        <div class="spacer"></div>
+        <div class="small-text">
+          <h3 class="underline">Project Collaborations</h3><br>
+            <span class="collaborator">twenty first century museum of kanazawa</span><br />
+            <span class="collaborator">western front </span><br />
+            <span class="collaborator">the well tempered at espace niemayer </span><br />
+            <span class="collaborator">oevra </span><br />
+            <span class="collaborator">cfcl hermes </span><br />
+            <span class="collaborator">residenz theater</span>
+        </div>
+      </section>
+      <section id="past-solutions">
+        <h2 class="invisible">Past Solutions</h2>
+        <div class="spacer big"></div>
+        <table class="tablesorter" id="expert">
+          <thead>
+            <td>year</td>
+            <td>project</td>
+            <td>type</td>
+            <td>solved with</td>
+            <td>team</td>
+            <td>location</td>
+            <td>link</td>
+          </thead>
+          <tr class="item-title" data-id="1" role="row">
+            <td>2024</td>
+            <td>
+              CFCL vol.9, Womenswear S/S 2025<br>
+              Paris Fashion Week
+            </td>
+            <td>fashion show</td>
+            <td>* light<br>
+              * movement<br>
+              * dramatugy<br>
+              * spacial design</td>
+            <td>Dylan Spencer Davidson (dramaturgy)</td>
+            <td>Paris<br> Palais de tokyo</td>
+            <td>
+              <a href="https://www.cms.cfcl.jp/collection/vol9/" target="_blank">↗</a>
+            </td>
+          </tr>
+          <!-- <tr class="item-content static" data-parent-id="1" role="row">
+            <td colspan="7">
+              <img src="assets/images/cfcl2025.jpg">
+            </td>
+          </tr> -->
+          <tr>
+            <td>2024</td>
+            <td>CFCL vol.8, Womenswear F/W 2025<br>
+              Paris Fashion Week
+              </td>
+            <td>fashion show</td>
+            <td>* light<br>
+              * movement<br>
+              * dramatugy<br>
+              * spacial design</td>
+            <td>Dylan Spencer Davidson (dramaturgy)</td>
+            <td>Paris<br> Palais de tokyo</td>
+            <td>
+              <a href="https://www.cms.cfcl.jp/collection/vol8/" target="_blank">↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>Oevra</td>
+            <td>video for website</td>
+            <td>* video design</td>
+            <td>H. Takahashi (sound design)</td>
+            <td>Online</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>Hermes Kyoto Event</td>
+            <td>concert</td>
+            <td>* spacial design</td>
+            <td>
+              Nagaya Kazuy (concert)<br>
+              Yoshihiro Inada (video)</td>
+            <td>Kyoto<br> Seiryuuden</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>KW, Matadora </td>
+            <td>sound for performance</td>
+            <td>* sound<br>
+              * dramaturgy</td>
+            <td>Belle Santos (direction)</td>
+            <td>Berlin<br> KW</td>
+            <td>
+              <a href="https://www.kw-berlin.de/en/pogo-bar-belle-santos-matadora/" target="_blank">↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>
+              CFCL vol.7, Womenswear F/W 2023<br>
+              Paris Fashion Week
+              </td>
+            <td>fashion show</td>
+            <td>* light<br>
+              * movement<br>
+              * dramatugy<br>
+              * spacial design</td>
+            <td>Dylan Spencer Davidson (dramaturgy)</td>
+            <td>Paris<br> Palais de tokyo</td>
+            <td>
+              <a href="https://www.cms.cfcl.jp/collection/vol7/" target="_blank">↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>
+              CFCL vol.6, Womenswear S/S 2023<br>
+              Paris Fashion Week
+            </td>
+            <td>fashion show</td>
+            <td>* light<br>
+              * movement<br>
+              * dramatugy<br>
+              * spacial design</td>
+            <td>
+              Dylan Spencer Davidson (dramaturgy)<br>
+              Miriam Stoney (text)<br>
+              Ojima Yoshio (music)<br>
+              Nozomu Matsumoto (sound design)
+            </td>
+            <td>Paris<br> Palais de tokyo</td>
+            <td>
+              <a href="https://www.cms.cfcl.jp/collection/vol6" target="_blank">↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>The Well Tempered<br>
+              Espace Niemayer</td>
+            <td>art event</td>
+            <td>* event ops<br>
+              * light<br>
+              * sound<br>
+              * narrative</td>
+            <td>
+              H.Takahashi (sound design)<br>
+              Miriam Stoney (text, script)<br>
+              Yoshihiro Inada (videography)
+            </td>
+            <td>Paris<br> espace niemayer</td>
+            <td>
+              <a href="https://www.instagram.com/the_well_tempered/" target="_blank">↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>Western Front<br>
+              Apparition Room</td>
+            <td>exhibition design</td>
+            <td>* light<br>
+              * video ops<br>
+              * spacial design<br>
+              * movement</td>
+            <td></td>
+            <td>Vancouver<br> Western Front</td>
+            <td>
+              <a href="https://westernfront.ca/events/apparition-room" target="_blank">↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>Kacchu Anatomy<br>
+              Kanazawa 21st Century Museum of Art
+              </td>
+            <td>exhibition design</td>
+            <td>* sound<br>* spacial design</td>
+            <td>Nozomu Matsumoto (sound)</td>
+            <td>Kanazawa<br> 21st Century Museum</td>
+            <td>
+              <a href="https://www.kanazawa21.jp/kacchu/en" target="_blank">↗</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>
+              CFCL vol.5, Womenswear F/W 2022<br>
+              Paris Fashion Week
+              
+            </td>
+            <td>fashion show</td>
+            <td>
+              * light<br>
+              * movement<br>
+              * dramatugy<br>
+              * spacial design</td>
+            <td>
+              Dylan Spencer Davidson (dramaturgy)<br>
+              Miriam Stoney (text)<br>
+              Nozomu Matsumoto (sound design)<br>
+              Fatschaudi (vocal)
+            </td>
+            <td>Paris<br> Palais de Tokyo</td>
+            <td>
+              <a href="https://www.cms.cfcl.jp/collection/vol5/" target="_blank">↗</a>
+            </td>
+          </tr>
+          <!-- <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <a href="" target="_blank">↗</a>
+            </td>
+          </tr> -->
+        </table>
+      </section>
+
+      <section id="atmospheric-friends">
+        <h2 class="invisible">Friends & Collaborators</h2>
+        <div class="spacer big"></div>
+        <!-- <p class="column">
+          atmospheric solutions is project by nile koetting and great collaborators and friends. 
+        </p> -->
+        <div class="spacer"></div>
+        <p>
+
+          <h3 class="department">costume</h3>
+          <div class="name">belle santos</div>
+
+
+          <h3 class="department">dramaturgy, movement</h3>
+          <div class="name">dylan davidson</div>
+
+
+          <h3 class="department">html, design</h3>
+          <div class="name">laurel schwulst</div>
+          <div class="name">minami shimakage</div>
+
+
+          <h3 class="department">text, curation</h3>
+          <div class="name">jade bargett</div>
+
+          <h3 class="department">text, script</h3>
+          <div class="name">miriam stoney</div>
+
+
+          <h3 class="department">production</h3>
+          <div class="name">petit ami</div>
+
+
+          <h3 class="department">sound</h3>
+          <div class="name">fatschaudi</div>
+          <div class="name">nozomu matsumoto</div>
+          <div class="name">yoshio ojima</div>
+          <div class="name">h. takahashi</div>
+          <div class="name">hideki umezawa</div>
+
+
+          <h3 class="department">video</h3>
+          <div class="name">yoshihiro inada</div>
+
+
+
+        </p>
+      </section>
+
+      <section id="future-solutions">
+        <h2 class="invisible">Future Solutions</h2>
+        <div class="spacer big"></div>
+        <table class="future">
+          <thead>
+            <td>year</td>
+            <td>project</td>
+            <td>type</td>
+            <td>solved with</td>
+            <td>team</td>
+            <td>location</td>
+          </thead>
+          <tr>
+            <td>2025</td>
+            <td>???</td>
+            <td>fashion show</td>
+            <td>???</td>
+            <td>???</td>
+            <td>???</td>
+          </tr>
+          <tr>
+            <td>2027</td>
+            <td>???</td>
+            <td>exhibition design</td>
+            <td>???</td>
+            <td>???</td>
+            <td>???</td>
+          </tr>
+        </table>
+      </section>
+      </section>
+
+      <section id="contact-us">
+        <h2 class="invisible">Contact Us</h2>
+        <div class="spacer big"></div>
+        <p class="column">
+          info@atmosphericsolutions.cloud
+        </p>
+        <div class="spacer"></div>
+      </section>
+      
+      <!-- <section id="test"></section> -->
+    </main>
+    <div class="super-container">
+      <div class="container">
+        <div class="base-gradient"></div>
+        <div class="glow-gradient" id="glow-layer"></div>
+      </div>
+    </div>
+    
+    <div id="flight">Waiting for a flight to land in Paris...</div>
+    <div id="air">Loading air quality…</div>
+
+<script>
+const flightDiv = document.getElementById("flight");
+
+// Paris bounding box (approx)
+const LAMIN = 48.7;
+const LAMAX = 49.2;
+const LONMIN = 2.2;
+const LONMAX = 2.5;
+
+// Store landed flight IDs to avoid duplicates
+let seenFlights = new Set();
+
+async function checkFlights() {
+  try {
+    const res = await fetch(`https://opensky-network.org/api/states/all?lamin=${LAMIN}&lomin=${LONMIN}&lamax=${LAMAX}&lomax=${LONMAX}`);
+    const data = await res.json();
+
+    if (!data.states) return;
+
+    const landedFlights = data.states.filter(flight => flight[8] === true); // on_ground is at index 8
+
+    landedFlights.forEach(flight => {
+      const flightId = flight[0]; // icao24
+      if (!seenFlights.has(flightId)) {
+        seenFlights.add(flightId);
+        flashFlightDiv();
+      }
+    });
+
+    // Keep seenFlights set from growing infinitely
+    if (seenFlights.size > 1000) {
+      seenFlights = new Set([...seenFlights].slice(-500));
+    }
+  } catch (e) {
+    console.error("Flight check failed", e);
+  }
+}
+
+function flashFlightDiv() {
+  flightDiv.style.backgroundColor = 'yellow';
+  setTimeout(() => {
+    flightDiv.style.backgroundColor = '';
+  }, 5000);
+}
+
+// Check every 30 seconds
+setInterval(checkFlights, 30 * 1000);
+checkFlights();
+</script>
+
+    <!-- TIDE -->
+
+    <div id="tide">Checking tide status...</div>
+
+<script>
+function getTideStatus() {
+  const TIDE_DIV = document.getElementById('tide');
+
+  // Kamakura reference low tide: Jan 1, 2024, 00:00 JST (UTC+9)
+  const referenceTide = new Date('2025-05-16T00:40:00+09:00');
+  const now = new Date();
+
+  // Time since reference in milliseconds
+  const msSinceRef = now - referenceTide;
+
+  // Duration of one tide interval (6h 12.5m = 22,500,000ms)
+  const tideIntervalMs = 6.208 * 60 * 60 * 1000;
+
+  // How many tide intervals have passed?
+  const intervals = Math.floor(msSinceRef / tideIntervalMs);
+
+  // Tides alternate: Low → High → Low → High ...
+  const isLowTide = intervals % 2 === 0;
+
+  if (isLowTide) {
+    TIDE_DIV.style.backgroundColor = 'cyan';
+    TIDE_DIV.textContent = "Estimated: It's low tide in Kamakura.";
+  } else {
+    TIDE_DIV.style.backgroundColor = 'white';
+    TIDE_DIV.textContent = "Estimated: It's not low tide in Kamakura.";
+  }
+}
+
+getTideStatus();
+</script>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.tablesorter.js"></script>
+    <script src="assets/js/jquery.tablesorter.staticrow.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

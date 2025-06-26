@@ -130,3 +130,30 @@ $(function () {
   // Optional: Update every minute
   setInterval(updateTimes, 60 * 1000);
 });
+
+// air quality
+
+// https://api.waqi.info/feed/A514390/?token=22150a2e50f0966426a1b74dffb3d16f06ca38b6
+
+async function showAQI() {
+  const url =
+    "https://api.waqi.info/feed/A514390/?token=22150a2e50f0966426a1b74dffb3d16f06ca38b6";
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data.status === "ok") {
+      const aqi = data.data.aqi;
+      const location = data.data.city.name;
+      const display = document.getElementById("air");
+      display.textContent = `The air quality is ${aqi} in Kamakura.`;
+    } else {
+      document.getElementById("air").textContent = "Error loading AQI.";
+    }
+  } catch (err) {
+    document.getElementById("air").textContent = "Error fetching AQI.";
+    console.error(err);
+  }
+}
+
+window.addEventListener("load", showAQI);
