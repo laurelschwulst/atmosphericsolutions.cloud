@@ -87,36 +87,13 @@ We explore new possibilities of creative energy within a complex society—throu
             <td>location</td>
             <td>link</td>
           </thead>
-          <tr>
-            <td>2026</td>
-            <td>Setouchi Art &amp; Industry</td>
-            <td>Art Festival and guided tour</td>
-            <td>* application development</td>
-            <td>Maki Software (engineering)<br>
-              Nozomu Matsumoto (sound)<br>
-              Minami Shimakage (design)</td>
-            <td>Okayama<br>Fuji Clean Recycling Center</td>
-            <td>
-              <a href="https://www.sai-art.jp/en/artworks" target="_blank">↗</a>
-            </td>
-          </tr>
-          <tr>
-            <td>2026</td>
-            <td>Lay-out</td>
-            <td>exhibition system design</td>
-            <td>* identity design<br>
-              * website<br>
-              * performance</td>
-            <td>Minami Shimakage (design)</td>
-            <td>Geneva<br>MAH - Musée d'art et d'histoire de Genève</td>
-            <td></td>
-          </tr>
-          <tr>
+          <tr class="item-title" data-id="1" role="row">
+            <tr>
             <td>2026</td>
             <td>Morning Time<br>
               </td>
             <td>Theater performance</td>
-            <td>* light</td>
+            <td>*light<br>
             <td>belle santos (direction)</td>
             <td>Berlin<br>sophiensaele</td>
             <td>
@@ -180,8 +157,8 @@ We explore new possibilities of creative energy within a complex society—throu
               </td>
             <td>Identity and visual direction</td>
             <td>* photo<br>
-              * packaging design</td>
-            <td>Kei Murata (photography)</td>
+              * packaging design<br>
+            <td>Kei Murata(photography)</td>
             <td>tokyo<br> online</td>
             <td>
               <a href="https://uruotte.com/" target="_blank">↗</a>
@@ -455,18 +432,22 @@ We explore new possibilities of creative energy within a complex society—throu
           </thead>
           <tr>
             <td>2026</td>
-            <td>CFCL vol.13, Womenswear S/S 2027<br>
-              Paris Fashion Week
-              </td>
+            <td>CFCL Vol.13</td>
             <td>fashion show</td>
-            <td>* light<br>
-              * movement<br>
-              * dramaturgy<br>
-              * spatial design</td>
-            <td>Dylan Spencer-Davidson (dramaturgy)</td>
-            <td>Paris<br>Palais de Tokyo</td>
+            <td>Music direction</td>
+            <td>Dylan Spencer-Davidson</td>
+            <td>TBC</td>
+          </tr>
+          <tr>
+            <td>2026</td>
+            <td>Lay-out</td>
+            <td>exhibition system design</td>
+            <td>Identity design, website, performance</td>
+            <td>Minami Shimakage</td>
+            <td>MAH - Musée d'art et d'histoire de Genève</td>
           </tr>
         </table>
+      </section>
       </section>
 
       <section id="contact-us">
@@ -548,7 +529,7 @@ checkFlights();
 function getTideStatus() {
   const TIDE_DIV = document.getElementById('tide');
 
-  // Kamakura reference low tide: May 16, 2025, 00:40 JST (UTC+9)
+  // Kamakura reference low tide: Jan 1, 2024, 00:00 JST (UTC+9)
   const referenceTide = new Date('2025-05-16T00:40:00+09:00');
   const now = new Date();
 
